@@ -1,6 +1,9 @@
 package edu.grinnell.csc207.util;
 
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 
 /**
@@ -117,8 +120,13 @@ public class BitTree {
   /**
    *
    */
-  public void load(InputStream source) {
-    // STUB
+  public void load(InputStream source) throws IOException {
+    InputStreamReader streamEyes = new InputStreamReader(source);
+    BufferedReader eyes = new BufferedReader(streamEyes);
+    String line = eyes.readLine();
+    for (; line != null; line = eyes.readLine()) {
+     String[] lineChunk = line.split(",");
+     this.set(lineChunk[0], lineChunk[1]);
+    }
   } // load(InputStream)
-
 } // class BitTree
