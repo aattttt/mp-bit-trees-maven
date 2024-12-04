@@ -48,7 +48,7 @@ public class BitTree {
       throw new IndexOutOfBoundsException("The given string is the wrong length");
     }
     for (int i = 0; i < bits.length(); i++) {
-      if (bits.charAt(i) != 0 && bits.charAt(i) != 1) {
+      if (bits.charAt(i) != '0' && bits.charAt(i) != '1') {
         throw new IndexOutOfBoundsException("The given string contains something other than a 0 or a 1");
       }   
     } // for

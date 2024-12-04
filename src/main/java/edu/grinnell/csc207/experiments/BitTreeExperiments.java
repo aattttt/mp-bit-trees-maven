@@ -1,11 +1,11 @@
 package edu.grinnell.csc207.experiments;
 
-import edu.grinnell.csc207.util.BitTree;
-
 import java.io.ByteArrayInputStream;
-import java.io.InputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
+
+import edu.grinnell.csc207.util.BitTree;
 
 /**
  * Some experiments with Bit Trees.
@@ -137,7 +137,7 @@ public class BitTreeExperiments {
    * @param pen
    *   Where to print the info.
    */
-  static void experiment02(PrintWriter pen) {
+  static void experiment02(PrintWriter pen) throws IOException {
     pen.println("Experiment 02");
     pen.println("-------------");
     BitTree b2aTree = new BitTree(6);
@@ -169,7 +169,7 @@ public class BitTreeExperiments {
    * @param args
    *   Command-line arguments (ignored).
    */
-  public static void main(String[] args) {
+  public static void main(String[] args) throws IOException {
     PrintWriter pen = new PrintWriter(System.out, true);
 
     experiment01(pen);
