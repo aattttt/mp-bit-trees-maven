@@ -14,16 +14,16 @@ public class BitTreeInteriorNode implements BitTreeNode{
 
 
 
-   public void set (BitTreeNode child, int position) {
-    if (position == 0) {
+   public void set (BitTreeNode child, char position) {
+    if (position == '0') {
       this.left = child;
     } else /*if (position == 1) */ {
       this.right = child;
     }
    }
 
-   public BitTreeNode get (int position) {
-    if (position == 0) {
+   public BitTreeNode get (char position) {
+    if (position == '0') {
       return this.left;
     } else /*if (position == 1)*/ {
       return this.right;

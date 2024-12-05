@@ -61,7 +61,7 @@ public class BitTree {
         start = start.get(bits.charAt(i)).getInterior();
     }
     BitTreeNode leaf = new BitTreeLeaf(value);
-    start.set(leaf, bits.length());
+    start.set(leaf, bits.charAt(bits.length() - 1));
   } // set(String, String)
 
   /**
@@ -77,7 +77,6 @@ public class BitTree {
       } // if  
     } // for
 
-
     BitTreeNode start = this.root;
     for (int i = 0; i < bits.length(); i++) {
         if (start == null) {
@@ -86,7 +85,7 @@ public class BitTree {
         start = start.getInterior().get(bits.charAt(i));
     } // for
     if (start == null) {
-      throw new IndexOutOfBoundsException("The given path doesn't lead to a value");
+      throw new IndexOutOfBoundsException("The given path doesn't lead to a value2");
     } // if
     return start.getLeaf().getValue();
   } // get(String, String)
@@ -108,11 +107,11 @@ public class BitTree {
       BitTreeInteriorNode interior = child.getInterior();
       if (interior.hasLeft()) {
         code = code + "0";
-        dump(pen, interior.get(0), code);
+        dump(pen, interior.get('0'), code);
       }
       if (interior.hasRight()) {
         code = code + "1";
-        dump(pen, interior.get(1), code);
+        dump(pen, interior.get('1'), code);
       }
     }
   }
