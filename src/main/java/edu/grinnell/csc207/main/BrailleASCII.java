@@ -6,7 +6,11 @@ import java.io.PrintWriter;
 import edu.grinnell.csc207.util.BrailleAsciiTables;
 
 /**
+ * Converts command line input from unicode text to binary braille or unicode
+ * braille, or binary braille to text
  *
+ * @author A.J. Trimble
+ * @author Samuel A. Rebelsky
  */
 public class BrailleASCII {
     // +------+--------------------------------------------------------
@@ -21,21 +25,20 @@ public class BrailleASCII {
         if (args[0].equals("braille")) {
             brailleHandler(pen, args[1]);
         } else if (args[0].equals("ascii")) {
-            // call braile
+            asciiHandler(pen, args[1]);
         } else if (args[0].equals("unicode")) {
-            // call braile
+            unicodeHandler(pen, args[1]);
         } else {
             pen.printf("Invalid character set");
-        }
-        // STUB
+        } // else
         pen.close();
-    } // main(String[]
+    } // main(String[])
 
     public static void brailleHandler(PrintWriter pen, String str) throws IOException {
         for (int i = 0; i < str.length(); i++) {
             String output = BrailleAsciiTables.toBraille(str.charAt(i));
             pen.printf(output);
-        }
+        } // for
     } // brailleHandler(PrintWriter, String)
 
     public static void asciiHandler(PrintWriter pen, String str) throws IOException {
@@ -47,19 +50,16 @@ public class BrailleASCII {
                 String chunk = str.substring(i, ((i + 1) * 6));
                 String output = BrailleAsciiTables.toAscii(chunk);
                 pen.printf(output);
-            }
-        }
+            } // for
+        } // else
     } // asciiHandler(PrintWriter, String)
 
     public static void unicodeHandler(PrintWriter pen, String str) throws IOException {
-      for (int i = 0; i < str.length(); i++) {
-          String chunk = BrailleAsciiTables.toBraille(str.charAt(i));
-          String hexChunk = BrailleAsciiTables.toUnicode(chunk);
-          int output = Integer.valueOf(hexChunk, 16);
-          pen.print((char) output);
-      }
-
-
-  } // brailleHandler(PrintWriter, String)
-
+        for (int i = 0; i < str.length(); i++) {
+            String chunk = BrailleAsciiTables.toBraille(str.charAt(i));
+            String hexChunk = BrailleAsciiTables.toUnicode(chunk);
+            int output = Integer.valueOf(hexChunk, 16);
+            pen.print((char) output);
+        } // for
+    } // brailleHandler(PrintWriter, String)
 } // class BrailleASCII

@@ -46,20 +46,20 @@ public class BitTree {
   public void set(String bits, String value) {
     if (bits.length() != this.length ) {
       throw new IndexOutOfBoundsException("The given string is the wrong length");
-    }
+    } // if
     for (int i = 0; i < bits.length(); i++) {
       if (bits.charAt(i) != '0' && bits.charAt(i) != '1') {
         throw new IndexOutOfBoundsException("The given string contains something other than a 0 or a 1");
-      }   
+      } // if
     } // for
     BitTreeInteriorNode start = this.root.getInterior();
     for (int i = 0; i < bits.length() - 1; i++) {
         BitTreeNode child = new BitTreeInteriorNode();
         if (start.get(bits.charAt(i)) == null) {
           start.set(child, bits.charAt(i));
-        }
+        } // if
         start = start.get(bits.charAt(i)).getInterior();
-    }
+    } // for
     BitTreeNode leaf = new BitTreeLeaf(value);
     start.set(leaf, bits.charAt(bits.length() - 1));
   } // set(String, String)
@@ -88,7 +88,7 @@ public class BitTree {
       throw new IndexOutOfBoundsException("The given path doesn't lead to a value2");
     } // if
     return start.getLeaf().getValue();
-  } // get(String, String)
+  } // get(String)
 
   /**
    *
@@ -108,13 +108,13 @@ public class BitTree {
       if (interior.hasLeft()) {
         code = code + "0";
         dump(pen, interior.get('0'), code);
-      }
+      } // if
       if (interior.hasRight()) {
         code = code + "1";
         dump(pen, interior.get('1'), code);
-      }
-    }
-  }
+      } // if
+    } // else
+  } // dump(PrintWriter, BitTreeNode, String)
 
   /**
    *
@@ -126,6 +126,6 @@ public class BitTree {
     for (; line != null; line = eyes.readLine()) {
      String[] lineChunk = line.split(",");
      this.set(lineChunk[0], lineChunk[1]);
-    }
+    } // for
   } // load(InputStream)
 } // class BitTree
