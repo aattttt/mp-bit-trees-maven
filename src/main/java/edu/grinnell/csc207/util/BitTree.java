@@ -60,8 +60,8 @@ public class BitTree {
         }
         start = start.get(bits.charAt(i)).getInterior();
     }
-    BitTreeNode finish = new BitTreeLeaf(value);
-    start.set(finish, bits.length());
+    BitTreeNode leaf = new BitTreeLeaf(value);
+    start.set(leaf, bits.length());
   } // set(String, String)
 
   /**
@@ -72,7 +72,7 @@ public class BitTree {
       throw new IndexOutOfBoundsException("The given string is the wrong length");
     } // if
     for (int i = 0; i < bits.length(); i++) {
-      if (bits.charAt(i) != 0 && bits.charAt(i) != 1) {
+      if (bits.charAt(i) != '0' && bits.charAt(i) != '1') {
         throw new IndexOutOfBoundsException("The given string contains something other than a 0 or a 1");
       } // if  
     } // for
