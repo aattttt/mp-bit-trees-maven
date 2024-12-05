@@ -101,7 +101,7 @@ public class BitTree {
     // base case
     BitTreeLeaf finish = child.getLeaf();
     if (finish != null) {
-      pen.printf(code + "," + finish.getValue());
+      pen.printf(code + "," + finish.getValue() + '\n');
     } else {
       // recursive case
       BitTreeInteriorNode interior = child.getInterior();

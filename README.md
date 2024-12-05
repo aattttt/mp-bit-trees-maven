@@ -10,14 +10,6 @@ A mini-project exploring bit trees (a form of binary tree) and their use in tran
 **Acknowledgements**
 
 * The lab on Binary Search Trees: https://github.com/aattttt/lab-bsts-maven/tree/main/src/main/java/edu/grinnell/csc207
-*
-*
-
-**Instructions for use**
-
-_Please insert instructions here._
-Implement load
-Document
 
 ---
 
